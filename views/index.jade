@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .vignette
+    script.
+      $.backstretch("https://site-443elevatr-media.s3.amazonaws.com/elevatr-temp.jpg");
+    #content
+      h1(id="responsive_headline") (443) ELE-VATR
+    script.
+      jQuery("#responsive_headline").fitText();

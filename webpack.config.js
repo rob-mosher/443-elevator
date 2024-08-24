@@ -1,4 +1,6 @@
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -15,25 +17,26 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: [
           'style-loader',
-          'css-loader']
+          'css-loader',
+          'postcss-loader'
+        ]
       }
     ]
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '/dist/',
     filename: 'bundle.js'
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public/')
-    },
-    port: 3000,
-    devMiddleware: {
-      publicPath: 'http://localhost:3000/dist/'
-    },
-    hot: 'only'
-  },
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: 'index.html'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './public', to: './' }
+      ]
+    })
+  ]
 }

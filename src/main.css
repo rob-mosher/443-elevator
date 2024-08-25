@@ -4,11 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-.App {
-  font-family: 'Oswald', 'Arial', 'Helvetica', 'sans-serif';
-  /* background-image: ; */
-}
-
 .vignette {
   box-shadow: 0 0 200px rgb(0 0 0 / 60%) inset;
   -webkit-transition: all 0.5s ease-in-out;

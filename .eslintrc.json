@@ -53,6 +53,7 @@
         ]
       }
     ],
+    "react/require-default-props": "off",
     "semi": [
       "error",
       "never"

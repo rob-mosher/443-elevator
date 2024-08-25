@@ -1,16 +1,15 @@
-const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        options: { presets: ['@babel/env'] }
       },
       {
         test: /\.s?[ac]ss$/i,
@@ -18,25 +17,27 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'postcss-loader'
-        ]
-      }
-    ]
+          'postcss-loader',
+        ],
+      },
+    ],
   },
-  resolve: { extensions: ['*', '.js', '.jsx'] },
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+  },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: './public', to: './' }
-      ]
-    })
-  ]
-}
+        { from: './public', to: './' },
+      ],
+    }),
+  ],
+};

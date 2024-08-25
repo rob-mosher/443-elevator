@@ -40,7 +40,7 @@ export default function Marquee({ isLeftToRight = true, speedMultiplier = 1, tex
   return (
     <motion.div
       className={clsx(
-        'flex w-full overflow-hidden whitespace-nowrap bg-yellow-300/50 py-2 text-2xl uppercase text-black shadow-inner',
+        'flex w-full overflow-hidden whitespace-nowrap bg-yellow-300/50 py-2 text-lg uppercase text-black shadow-inner sm:text-2xl',
         isLeftToRight ? 'justify-start' : 'justify-end',
       )}
       variants={fadeInVariants}

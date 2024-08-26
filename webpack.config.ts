@@ -1,8 +1,9 @@
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path'
+import { Configuration as TConfiguration } from 'webpack'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-module.exports = {
+const config: TConfiguration = {
   entry: './src/index.tsx',
   module: {
     rules: [
@@ -40,4 +41,6 @@ module.exports = {
       ],
     }),
   ],
-};
+}
+
+export default config
